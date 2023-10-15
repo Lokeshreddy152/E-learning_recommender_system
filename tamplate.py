@@ -3,7 +3,7 @@ import os
 from pathlib import Path
 import logging
 
-# Configure logging to display information messages with a specific format
+# Configure logging to display information messages with a specific formatgit
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
 
 # Define the project name

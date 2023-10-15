@@ -1,0 +1,41 @@
+# Required for numerical operations
+numpy
+
+# Data manipulation and analysis library
+pandas
+
+# Data visualization library
+matplotlib
+seaborn
+
+# SQL database connectivity
+sqlalchemy
+
+# Word cloud generation
+wordcloud
+
+# Natural Language Processing (NLP) tools
+nltk
+
+# Machine learning tools for text data
+scikit-learn
+
+# FastAPI for building APIs
+fastapi
+
+# Progress bar for loops
+tqdm
+
+# Jupyter notebook for interactive coding
+notebook
+
+# Datasets library for handling data
+datasets
+
+# YAML parsing for configuration files
+PyYAML
+
+# A library for working with nested dictionaries
+python-box
+
+-e .
