@@ -3,11 +3,11 @@ import os
 from pathlib import Path
 import logging
 
-# Configure logging to display information messages with a specific formatgit
+# Configure logging to display information messages with a specific format
 logging.basicConfig(level=logging.INFO, format='[%(asctime)s]: %(message)s:')
 
 # Define the project name
-project_name = "E-learning_recommender_system"
+project_name = "E_learning_recommender_system"
 
 # List of files to be created or checked
 list_of_files = [
@@ -16,6 +16,7 @@ list_of_files = [
     f"src/{project_name}/components/__init__.py",  # Create or check '__init__.py' in a subpackage
     f"src/{project_name}/utils/__init__.py",  # Create or check '__init__.py' in another subpackage
     f"src/{project_name}/utils/common.py",  # Create or check 'common.py' in the 'utils' subpackage
+    f"src/{project_name}/exception/__init__.py",  # Create or check '__init__.py' in the 'exception' subpackage
     f"src/{project_name}/logging/__init__.py",  # Create or check '__init__.py' in the 'logging' subpackage
     f"src/{project_name}/config/__init__.py",  # Create or check '__init__.py' in the 'config' subpackage
     f"src/{project_name}/config/configuration.py",  # Create or check 'configuration.py' in the 'config' subpackage
