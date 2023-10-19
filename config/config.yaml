@@ -1,0 +1,12 @@
+artifacts_root: artifacts
+
+data_ingestion:
+  root_dir: artifacts/data_ingestion
+  extract_data: artifacts/data_ingestion/raw_data
+  raw_data: artifacts/data_ingestion/raw_data/e_learning.csv
+  sql_query: SELECT C.*, AR.*, S.registered_date FROM COURSE C JOIN STUDENT S ON C.COURSE_ID = S.COURSE_ID JOIN ACTIVE_RATING AR ON S.STUDENT_ID = AR.STUDENT_ID
+  db_host: localhost
+  db_port: 5432
+  db_name: E-learning_database
+  db_user: postgres
+  db_password: 2677
