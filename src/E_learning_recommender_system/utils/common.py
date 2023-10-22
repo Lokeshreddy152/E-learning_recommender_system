@@ -7,6 +7,15 @@ from box import ConfigBox  # Import the 'ConfigBox' class from the 'box' library
 from pathlib import Path  # Import the 'Path' class from the 'pathlib' library for working with file paths.
 from typing import Any  # Import the 'Any' type hint for flexibility in function argument and return types.
 
+import nltk
+from nltk.corpus import stopwords
+from nltk.tokenize import word_tokenize
+from nltk.stem import PorterStemmer
+import re
+
+nltk.download('stopwords')
+nltk.download('punkt')
+
 @ensure_annotations
 def read_yaml(path_to_yaml: Path) -> ConfigBox:
     """
@@ -63,3 +72,27 @@ def get_size(path: Path) -> str:
     """
     size_in_kb = round(os.path.getsize(path) / 1024)  # Calculate the size in KB by dividing by 1024.
     return f"~ {size_in_kb} KB"  # Return the size as a string with the "~" symbol for approximate size.
+
+@ensure_annotations
+def preprocess_text(text):
+    # Remove special characters and numbers
+    text = re.sub(r'[^a-zA-Z\s]', '', text)
+
+    # Convert to lowercase
+    text = text.lower()
+
+    # Tokenization (split the text into words)
+    tokens = word_tokenize(text)
+
+    # Remove stopwords (common words like 'the', 'and', 'is')
+    stop_words = set(stopwords.words('english'))
+    filtered_tokens = [word for word in tokens if word not in stop_words]
+
+    # Stemming (reducing words to their root form)
+    stemmer = PorterStemmer()
+    stemmed_tokens = [stemmer.stem(word) for word in filtered_tokens]
+
+    # Join the tokens back into a single string
+    preprocessed_text = ' '.join(stemmed_tokens)
+
+    return preprocessed_text

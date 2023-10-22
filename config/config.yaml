@@ -2,11 +2,29 @@ artifacts_root: artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  extract_data: artifacts/data_ingestion/raw_data
-  raw_data: artifacts/data_ingestion/raw_data/e_learning.csv
+  raw_data: artifacts/data_ingestion/e_learning.csv
   sql_query: SELECT C.*, AR.*, S.registered_date FROM COURSE C JOIN STUDENT S ON C.COURSE_ID = S.COURSE_ID JOIN ACTIVE_RATING AR ON S.STUDENT_ID = AR.STUDENT_ID
   db_host: localhost
   db_port: 5432
   db_name: E-learning_database
   db_user: postgres
   db_password: 2677
+
+data_transformation:
+  root_dir: artifacts/data_transformation
+  raw_data: artifacts/data_ingestion/e_learning.csv
+  fet_eng_data: artifacts/data_transformation/e_learning_feature_eng.csv
+  text_preprocess_data: artifacts/data_transformation/e_learning_text_preprocess.csv
+  final_data: artifacts/data_transformation/e_learning_final.csv
+  tf_idf_vectorizer: artifacts/data_transformation/tf_idf_vectorizer.pkl
+  transformed_data: artifacts/data_transformation/transformed_data.pkl
+
+data_validation:
+  root_dir: artifacts/data_validation
+  status_file: artifacts/data_validation/status.txt
+  all_required_files: ["e_learning_final.csv","tf_idf_vectorizer.pkl","transformed_data.pkl"]
+
+data_recommender_system:
+  final_data: artifacts/data_transformation/e_learning_final.csv
+  tf_idf_vectorizer: artifacts/data_transformation/tf_idf_vectorizer.pkl
+  transformed_data: artifacts/data_transformation/transformed_data.pkl

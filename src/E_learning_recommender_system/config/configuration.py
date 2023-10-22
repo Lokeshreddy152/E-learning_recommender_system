@@ -1,6 +1,10 @@
 from E_learning_recommender_system.constants import CONFIG_FILE_PATH
 from E_learning_recommender_system.utils.common import read_yaml,create_directories
-from E_learning_recommender_system.entity import DataIngestionConfig
+from E_learning_recommender_system.entity import (DataIngestionConfig,
+                                                  DataTransformationConig,
+                                                  DataValidationConig,
+                                                  DataRecommenderSystemConig)
+
 
 class ConfigurationManger:
     def __init__(self,config_filepath = CONFIG_FILE_PATH):
@@ -13,11 +17,9 @@ class ConfigurationManger:
         config = self.config.data_ingestion
 
         create_directories([config.root_dir])
-        create_directories([config.extract_data])
 
         data_ingestion_config = DataIngestionConfig(
             root_dir=config.root_dir,
-            extract_data= config.extract_data,
             raw_data= config.raw_data,
             sql_query= config.sql_query,
             db_host = config.db_host,
@@ -28,3 +30,43 @@ class ConfigurationManger:
         )       
 
         return data_ingestion_config
+    
+    def get_data_transformation_config(self)->DataTransformationConig:
+        config = self.config.data_transformation
+
+        create_directories([config.root_dir])
+
+        data_transformation_config = DataTransformationConig(
+            root_dir=config.root_dir,
+            raw_data=config.raw_data,
+            fet_eng_data = config.fet_eng_data,
+            text_preprocess_data = config.text_preprocess_data,
+            final_data = config.final_data,
+            tf_idf_vectorizer  = config.tf_idf_vectorizer,
+            transformed_data = config.transformed_data
+        )       
+        
+        return data_transformation_config
+    
+    def get_data_validation_config(self)->DataValidationConig:
+        config = self.config.data_validation
+
+        create_directories([config.root_dir])
+
+        data_validation_config = DataValidationConig(
+            root_dir=config.root_dir,
+            status_file=config.status_file,
+            all_required_files=config.all_required_files
+        )       
+
+        return data_validation_config
+    def get_data_recommender_system_config(self)->DataRecommenderSystemConig:
+        config = self.config.data_recommender_system
+
+        data_recommender_system_config = DataRecommenderSystemConig(
+            final_data=config.final_data,
+            tf_idf_vectorizer= config.tf_idf_vectorizer,
+            transformed_data= config.transformed_data
+        )       
+
+        return data_recommender_system_config
