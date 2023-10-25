@@ -2,7 +2,7 @@ from E_learning_recommender_system.pipeline.stage_01_data_ingestion import DataI
 from E_learning_recommender_system.pipeline.stage_02_data_transformation import DataTransformationPipeline
 from E_learning_recommender_system.pipeline.stage_03_data_validation import DataValidationPipeline
 from E_learning_recommender_system.logging import logging
-
+from E_learning_recommender_system.pipeline.prediction import PredictionPipeline
 
 STAGE_NAME = "Data Ingestion stage"
 

@@ -38,4 +38,5 @@ PyYAML
 # A library for working with nested dictionaries
 python-box
 
+uvicorn
 -e .

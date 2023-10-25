@@ -34,4 +34,4 @@ class DataIngestion:
                 # Close the database connection, regardless of success or failure
                 connection.close()
         else:
-            logging.info(f"CSV file already exists at {self.config.extract_data}")
+            logging.info(f"CSV file already exists at {self.config.raw_data}")

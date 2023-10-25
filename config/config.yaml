@@ -23,8 +23,3 @@ data_validation:
   root_dir: artifacts/data_validation
   status_file: artifacts/data_validation/status.txt
   all_required_files: ["e_learning_final.csv","tf_idf_vectorizer.pkl","transformed_data.pkl"]
-
-data_recommender_system:
-  final_data: artifacts/data_transformation/e_learning_final.csv
-  tf_idf_vectorizer: artifacts/data_transformation/tf_idf_vectorizer.pkl
-  transformed_data: artifacts/data_transformation/transformed_data.pkl

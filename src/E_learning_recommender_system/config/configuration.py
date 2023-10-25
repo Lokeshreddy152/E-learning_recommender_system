@@ -2,8 +2,7 @@ from E_learning_recommender_system.constants import CONFIG_FILE_PATH
 from E_learning_recommender_system.utils.common import read_yaml,create_directories
 from E_learning_recommender_system.entity import (DataIngestionConfig,
                                                   DataTransformationConig,
-                                                  DataValidationConig,
-                                                  DataRecommenderSystemConig)
+                                                  DataValidationConig)
 
 
 class ConfigurationManger:
@@ -60,13 +59,3 @@ class ConfigurationManger:
         )       
 
         return data_validation_config
-    def get_data_recommender_system_config(self)->DataRecommenderSystemConig:
-        config = self.config.data_recommender_system
-
-        data_recommender_system_config = DataRecommenderSystemConig(
-            final_data=config.final_data,
-            tf_idf_vectorizer= config.tf_idf_vectorizer,
-            transformed_data= config.transformed_data
-        )       
-
-        return data_recommender_system_config

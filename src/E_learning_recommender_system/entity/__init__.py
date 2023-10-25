@@ -27,9 +27,3 @@ class DataValidationConig:
     root_dir: Path
     status_file: str
     all_required_files: list
-
-@dataclass(frozen=True)
-class DataRecommenderSystemConig:
-    final_data: str
-    tf_idf_vectorizer: str
-    transformed_data: str
